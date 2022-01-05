@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script >
+        // Es5不支持ESM
+        // TODO exports
+        // 全局污染
+        function require(file) {
+            var exports = {}
+
+                // eval('exports.default = function (a, b) {return a + b}');
+                (function (exports, code) {
+                    eval(code)
+                })(exports, 'exports.default = function (a, b) {return a + b}')
+            return exports
+        }
+        var add = require('./add').default
+        console.log(exports.default(3, 3))
+
+
+        // console.log(add(1, 2));
+    </script>
+</body>
+
+</html>
