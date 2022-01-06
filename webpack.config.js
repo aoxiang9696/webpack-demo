@@ -52,7 +52,18 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
-    ]
+    ],
+    resolve: { // 路径解析
+        alias: {  // 引用路径简化版
+            '@': 'src'
+        },
+        extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx'],//省略文件后缀名
+        modules: [
+            // 'node_modules',
+            path.resolve(__dirname, 'node_modules'), // 指定当前目录下的 node_modules 优先查找
+            'node_modules', // 如果有一些类库是放在一些奇怪的地方的，你可以添加自定义的路径或者目录
+        ],
+    }
 
 
 }
