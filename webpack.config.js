@@ -25,27 +25,27 @@ module.exports = {
                     'css-loader' //解析css代码，处理css中的依赖，例如!import和url()外部文件的声明
                 ]
             },
-            {
-                test: /\.(png|jpg|gif)$/,
-                use: [
-                    {
-                        loader: 'file-loader', // 解析文件
+            // {
+            //     test: /\.(png|jpg|gif)$/,
+            //     use: [
+            //         {
+            //             loader: 'file-loader', // 解析文件
 
-                    }
-                ]
-            },
-            {
-                test: /\.(js|jsx)?/, // 匹配文件类型
-                include: [
-                    path.resolve(__dirname, 'src') //指定哪些路径下文件需要loader处理
-                ],
-                use: {//指定使用的loader
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
-            }
+            //         }
+            //     ]
+            // },
+            // {
+            //     test: /\.(js|jsx)?/, // 匹配文件类型
+            //     include: [
+            //         path.resolve(__dirname, 'src') //指定哪些路径下文件需要loader处理
+            //     ],
+            //     use: {//指定使用的loader
+            //         loader: 'babel-loader',
+            //         options: {
+            //             presets: ['@babel/preset-env']
+            //         }
+            //     }
+            // }
         ]
     },
     plugins: [
